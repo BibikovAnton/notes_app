@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moon_notes/main.dart';
+
 import 'package:provider/provider.dart';
 
 class DeletedNotesScreen extends StatelessWidget {

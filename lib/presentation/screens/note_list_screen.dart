@@ -1,5 +1,6 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:moon_notes/consts/const_color.dart';
 import 'package:moon_notes/main.dart';
 import 'package:moon_notes/presentation/screens/deleted_notes_screen.dart';
 import 'package:moon_notes/presentation/screens/favorite_notes_screen.dart';
@@ -21,13 +22,15 @@ class NoteListScreen extends StatelessWidget {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: themeProvider.isDarkMode ? Colors.black : Colors.blue,
+                color: themeProvider.isDarkMode ? darkPurple : lightPurple,
               ),
-              child: Text(
-                'Меню',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+              child: Center(
+                child: Text(
+                  'Меню',
+                  style: TextStyle(
+                      color: Colors.grey.shade300,
+                      fontSize: 35,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ),
@@ -62,10 +65,15 @@ class NoteListScreen extends StatelessWidget {
           height: 50,
           child: TextField(
             decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: lightPurple),
+                  borderRadius: BorderRadius.circular(15)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25),
+                  borderSide: BorderSide(color: purpleColor)),
               prefixIcon: Icon(Icons.search),
-              label: Text('Поиск...'),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              hintText: 'Поиск...',
+              border: OutlineInputBorder(),
               hintStyle: TextStyle(color: Colors.white60),
             ),
             style: TextStyle(color: Colors.white),

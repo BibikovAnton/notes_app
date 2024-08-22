@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:moon_notes/consts/const_color.dart';
 import 'package:moon_notes/main.dart';
 import 'package:moon_notes/providers/confetti_provider.dart';
 import 'package:moon_notes/widgets/note.dart';
@@ -43,10 +44,16 @@ class _NoteAddScreenState extends State<NoteAddScreen> {
           TextField(
             controller: titleController,
             decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: lightPurple),
+                  borderRadius: BorderRadius.circular(10)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: purpleColor)),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              labelText: 'заголовок',
+              hintText: 'заголовок',
             ),
           ),
           SizedBox(height: 20),
@@ -54,6 +61,12 @@ class _NoteAddScreenState extends State<NoteAddScreen> {
             maxLines: 15,
             controller: contentController,
             decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: lightPurple),
+                  borderRadius: BorderRadius.circular(10)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: purpleColor)),
               hintText: 'содержание',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -65,6 +78,7 @@ class _NoteAddScreenState extends State<NoteAddScreen> {
             valueListenable: isImportant,
             builder: (context, value, child) {
               return SwitchListTile(
+                activeColor: Colors.teal,
                 title: Text('Отметить как важное'),
                 value: value,
                 onChanged: (newValue) {

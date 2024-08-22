@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moon_notes/consts/const_color.dart';
 import 'package:moon_notes/presentation/screens/note_list_screen.dart';
 
 class NameInputScreen extends StatefulWidget {
@@ -37,7 +38,7 @@ class _NameInputScreenState extends State<NameInputScreen> {
               style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.w800,
-                  color: const Color.fromARGB(255, 136, 91, 249)),
+                  color: purpleColor),
             ),
             Text(
               'Notes',

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:moon_notes/consts/const_color.dart';
 import 'package:moon_notes/main.dart';
 import 'package:moon_notes/widgets/note.dart';
 import 'package:provider/provider.dart';
@@ -65,10 +66,16 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
                 TextField(
                   controller: titleController,
                   decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: lightPurple),
+                          borderRadius: BorderRadius.circular(10)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: purpleColor)),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      labelText: 'заголовок'),
+                      hintText: 'заголовок'),
                 ),
                 SizedBox(
                   height: 20,
@@ -77,12 +84,19 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
                   maxLines: 15,
                   controller: contentController,
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: lightPurple),
+                        borderRadius: BorderRadius.circular(10)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(color: purpleColor)),
                     hintText: 'содержание',
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
                 SwitchListTile(
+                  activeColor: Colors.teal,
                   title: Text('отметить как важное'),
                   value: isImportant,
                   onChanged: (newValue) {
