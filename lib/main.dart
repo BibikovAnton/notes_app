@@ -1,20 +1,23 @@
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+
 import 'package:moon_notes/presentation/screens/splash_screen.dart';
+import 'package:moon_notes/providers/confetti_provider.dart';
+
 import 'package:moon_notes/unfocus.dart';
+import 'package:moon_notes/widgets/note.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
+
 import 'package:share_plus/share_plus.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() {
-  runApp(TextFieldUnfocus(child: AnimatedNotesApp()));
+  runApp(TextFieldUnfocus(child: HomePage()));
 }
 
-class AnimatedNotesApp extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -43,8 +46,6 @@ class AnimatedNotesApp extends StatelessWidget {
     );
   }
 }
-
-
 
 class ThemeProvider with ChangeNotifier {
   bool _isDarkMode = false;
@@ -110,8 +111,6 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 }
-
-
 
 class NoteProvider with ChangeNotifier {
   List<Note> _notes = [];
@@ -282,5 +281,3 @@ class NoteProvider with ChangeNotifier {
         sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 }
-
-
